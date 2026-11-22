@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+
+# Personal Compass Card data
+*.csv
+*.CSV
+*.cSV
+
+# Exception: public fare reference
+!fare_reference.csv
+
+# Generated reports
+*.pdf
+
+# Local backups
+*_backup.py
+*_before_*.py
+*_indentation_error.py
+logic_diff.txt
+
+# macOS
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+compass_analysis_full.py
