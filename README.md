@@ -4,6 +4,13 @@ A privacy-conscious transit spending analytics dashboard built with Python and S
 
 This project analyzes exported Compass Card transaction history to help users understand transit spending, journey frequency, and observed fare efficiency.
 
+## Live Demo
+
+**[Launch the Compass Card Fare Analyzer](https://compass-fare-analyzer.streamlit.app/)**
+
+Try the deployed Streamlit dashboard directly in your browser.
+No installation or repository cloning is required.
+
 ## Features
 
 - Upload and validate Compass Card CSV exports
@@ -34,7 +41,7 @@ This project analyzes exported Compass Card transaction history to help users un
 - pdf_report.py — PDF report generation
 - requirements.txt — Python dependencies
 
-## Getting Started
+## Run Locally (For Developers)
 
 1. Clone the repository.
 2. Create a Python virtual environment.
@@ -53,7 +60,7 @@ This project analyzes exported Compass Card transaction history to help users un
 
 ## Privacy
 
-The application processes uploaded transaction data locally.
+The deployed application processes uploaded CSV data on Streamlit Community Cloud. Avoid uploading sensitive transaction data unless you are comfortable with cloud-based processing.
 
 Personal Compass Card CSV files are excluded from Git version control through .gitignore.
 
