@@ -100,6 +100,17 @@ if uploaded_file is not None:
                 st.error("Analysis stopped: Please fix the CSV data issues.")
                 st.stop()
 
+            # Stop analysis when the CSV has no journey records
+            if (
+                "JourneyId" not in df.columns
+                or not df["JourneyId"].notna().any()
+            ):
+                st.warning(
+                    "No Card Usage records found. "
+                    "Please upload a CSV containing Card Usage (tap history)."
+                )
+                st.stop()
+
             results = run_analysis(df)
             journeys = results["journeys"]
 

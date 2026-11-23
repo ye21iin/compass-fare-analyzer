@@ -460,7 +460,7 @@ def run_analysis(df):
     print("\n=== Journey-Level Summary ===")
     print("Journey Start:", target_journey["DateTime"].min())
     print("Journey End:", target_journey["DateTime"].max())
-    print("Product:", target_journey["Product"].iloc[0])
+    print("Product:", target_journey["Product"].iloc[0] if not target_journey.empty else "N/A")
     print("Net Amount:", target_journey["Amount"].sum())
     print("Observed Journey Cost:", -target_journey["Amount"].sum())
 
@@ -674,6 +674,12 @@ def run_analysis(df):
     # --------------------------------------------------
     # 5. Calculate hypothetical Stored Value expenditure
     # --------------------------------------------------
+
+    # Ensure fare columns are numeric before calculating estimates
+    for col in ["StoredValue1ZoneFare", "StoredValue2ZoneFare", "StoredValue3ZoneFare"]:
+        cost_effectiveness[col] = pd.to_numeric(
+            cost_effectiveness[col], errors="raise"
+        )
 
     cost_effectiveness["EstimatedStoredValue1Zone"] = (
         cost_effectiveness["JourneyCount"]
